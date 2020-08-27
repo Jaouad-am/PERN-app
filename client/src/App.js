@@ -1,10 +1,13 @@
 import React, { Fragment } from "react";
 import "./App.css";
+import AddTodo from "./components/AddTodo";
 
 function App() {
   return (
     <Fragment>
-      <h1>hello from app.js</h1>
+      <div className="container">
+        <AddTodo />
+      </div>
     </Fragment>
   );
 }
