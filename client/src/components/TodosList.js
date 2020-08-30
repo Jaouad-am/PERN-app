@@ -1,6 +1,19 @@
-import React, { Fragment } from "react";
+import React, { Fragment, useEffect, useState } from "react";
 
 const TodoList = () => {
+  const getTodos = async () => {
+    try {
+      const todos = await fetch("http://localhost:5000/todos");
+      const data = await todos.json();
+      console.log(data);
+    } catch (error) {
+      console.log(error.message);
+    }
+  };
+
+  useEffect(() => {
+    getTodos();
+  });
   return (
     <Fragment>
       <table className="table mt-5 text-center">
