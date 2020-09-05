@@ -1,18 +1,20 @@
-import React, { Fragment } from "react";
+import React, { Fragment, useState } from "react";
 
-const EditTodo = () => {
+const EditTodo = ({ todo }) => {
+  const [description, setDescription] = useState(todo.description);
+  console.log(todo);
   return (
     <Fragment>
       <button
         type="button"
         class="btn btn-warning"
         data-toggle="modal"
-        data-target="#myModal"
+        data-target={`id${todo.todo.id}`}
       >
         Edit
       </button>
-
-      <div class="modal" id="myModal">
+      {/* example id = id10 */}
+      <div class="modal" id={`id${todo.todo.id}`}>
         <div class="modal-dialog">
           <div class="modal-content">
             <div class="modal-header">
@@ -23,7 +25,12 @@ const EditTodo = () => {
             </div>
 
             <div class="modal-body">
-              <input type="text" classname="form-control" />
+              <input
+                type="text"
+                classname="form-control"
+                value={description}
+                onChange={(e) => setDescription(e.target.value)}
+              />
             </div>
 
             <div class="modal-footer">
