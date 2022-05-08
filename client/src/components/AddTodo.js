@@ -12,7 +12,8 @@ const AddTodo = () => {
         body: JSON.stringify(body),
       });
       //console.log(response);
-      window.location("/");
+      //window.location.reload(false);
+      window.location = "/";
     } catch (error) {
       console.log(error.message);
     }

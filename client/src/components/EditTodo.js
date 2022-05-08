@@ -18,8 +18,9 @@ const EditTodo = ({ todo }) => {
           body: JSON.stringify(body),
         }
       );
-      //console.log(response);
-      window.location("/");
+      console.log(response);
+      window.location = "/";
+      //window.location.reload(false);
     } catch (error) {
       console.log(error.message);
     }
@@ -28,26 +29,26 @@ const EditTodo = ({ todo }) => {
     <Fragment>
       <button
         type="button"
-        class="btn btn-warning"
+        className="btn btn-warning"
         data-toggle="modal"
-        data-target={`id${todo.todo_id}`}
+        data-target={`#id${todo.todo_id}`}
       >
         Edit
       </button>
       {/* example id = id10 */}
       <div
-        class="modal"
+        className="modal"
         id={`id${todo.todo_id}`}
         onClick={() => setDescription(todo.description)}
       >
         {/* setDescription back to original if we cliack away from the modal */}
-        <div class="modal-dialog">
-          <div class="modal-content">
-            <div class="modal-header">
-              <h4 class="modal-title">Modal Heading</h4>
+        <div className="modal-dialog">
+          <div className="modal-content">
+            <div className="modal-header">
+              <h4 className="modal-title">Modal Heading</h4>
               <button
                 type="button"
-                class="close"
+                className="close"
                 data-dismiss="modal"
                 onClick={() => setDescription(todo.description)}
               >
@@ -56,27 +57,27 @@ const EditTodo = ({ todo }) => {
               </button>
             </div>
 
-            <div class="modal-body">
+            <div className="modal-body">
               <input
                 type="text"
-                classname="form-control"
+                className="form-control"
                 value={description}
                 onChange={(e) => setDescription(e.target.value)}
               />
             </div>
 
-            <div class="modal-footer">
+            <div className="modal-footer">
               <button
                 type="button"
-                class="btn btn-warning"
+                className="btn btn-warning"
                 data-dismiss="modal"
-                onclick={(e) => EditDescription(e)}
+                onClick={(e) => EditDescription(e)}
               >
                 Edit
               </button>
               <button
                 type="button"
-                class="btn btn-danger"
+                className="btn btn-danger"
                 data-dismiss="modal"
                 onClick={() => setDescription(todo.description)}
               >

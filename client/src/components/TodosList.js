@@ -55,7 +55,7 @@ const TodoList = () => {
               <td>
                 <button
                   className="btn btn-danger"
-                  onClick={deleteTodo(todo.todo_id)}
+                  onClick={() => deleteTodo(todo.todo_id)}
                 >
                   Delete
                 </button>
